@@ -1,0 +1,66 @@
+{
+  "name": "tsup-svelte-package-template",
+  "version": "0.0.1",
+  "description": "tsup-svelte-package-template",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist",
+    "*.d.ts"
+  ],
+  "scripts": {
+    "build": "tsup",
+    "size": "npm run build && size-limit",
+    "lint": "eslint --ext .ts,.tsx src --color",
+    "test": "vitest",
+    "verify-commit": "verify-commit-msg",
+    "prepare": "git-scm-hooks",
+    "release": "bumpp -r && npm publish"
+  },
+  "devDependencies": {
+    "@hunghg255/eslint-config-ts": "^0.0.2",
+    "@size-limit/preset-small-lib": "^8.2.6",
+    "@types/node": "^20.6.0",
+    "bumpp": "^9.2.0",
+    "eslint": "^8.49.0",
+    "git-scm-hooks": "^0.0.7",
+    "prettier": "^2.8.8",
+    "size-limit": "^8.2.6",
+    "tsup": "^7.2.0",
+    "typescript": "^4.9.5",
+    "verify-commit-msg": "^0.0.10"
+  },
+  "author": "hunghg255 <giahunghust@gmail.com>",
+  "license": "MIT",
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not op_mini all"
+  ],
+  "keywords": [
+    "sveltejs",
+    "valtio",
+    "state management"
+  ],
+  "homepage": "https://github.com/hunghg255/tsup-svelte-package-template",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hunghg255/tsup-svelte-package-template"
+  },
+  "bugs": {
+    "url": "https://github.com/hunghg255/tsup-svelte-package-template/issues"
+  },
+  "git-hooks": {
+    "pre-commit": "npm run lint",
+    "commit-msg": "npm run verify-commit"
+  }
+}
